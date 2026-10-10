@@ -34,3 +34,13 @@ if st.button("✨ Préparer mon idée"):
         st.warning("Décris d'abord ton histoire !")
 st.divider()
 st.caption("Fruzen IA — Notre projet, notre ambition 🚀")
+
+st.divider()
+st.header("📸 Ajouter une image")
+image = st.file_uploader(
+    "Choisis une image depuis ta galerie",
+    type=["png", "jpg", "jpeg", "webp"]
+)
+
+if image is not None:
+    st.image(image, caption="Image sélectionnée", use_container_width=True)
