@@ -36,7 +36,7 @@ image = st.file_uploader(
 if image is not None:
     st.image(
         image,
-        caption="Image sélectionnée",
+        caption="🍓 Notre personnage Fruzen",
         use_container_width=True
     )
 
