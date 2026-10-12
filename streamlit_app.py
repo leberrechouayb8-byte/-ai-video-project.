@@ -40,7 +40,7 @@ if image is not None:
         use_container_width=True
     )
 
-if if st.button("✨ Préparer mon idée"):
+if st.button("✨ Préparer mon idée"):
     if idee.strip():
         st.success("Ton scénario est prêt !")
 
