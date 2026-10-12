@@ -40,13 +40,47 @@ if image is not None:
         use_container_width=True
     )
 
-if st.button("✨ Préparer mon idée"):
+if if st.button("✨ Préparer mon idée"):
     if idee.strip():
-        st.success("Ton idée est prête à être préparée !")
+        st.success("Ton scénario est prêt !")
+
+        st.subheader("🎬 Ton projet vidéo")
         st.write("**Personnage :**", fruit)
-        st.write("**Histoire :**", idee)
-        st.write("**Durée :**", duree)
+        st.write("**Durée souhaitée :**", duree)
+
+        st.subheader("📝 Scénario préparé")
+
+        prompt = f"""
+Crée une vidéo verticale de type TikTok.
+Personnage principal : {fruit}.
+Durée souhaitée : {duree}.
+
+Histoire demandée :
+{idee}
+
+Instructions :
+- Le fruit est un personnage vivant et expressif.
+- Garde le même personnage pendant toute la vidéo.
+- Utilise un style cinématographique de haute qualité.
+- Ajoute des mouvements naturels et des expressions claires.
+- Prévois une voix en français si le modèle vidéo le permet.
+- Construis une histoire avec un début, une action et une fin.
+- Format vertical 9:16.
+"""
+
+        st.text_area(
+            "Prompt prêt pour la génération vidéo",
+            value=prompt,
+            height=300
+        )
+
+        st.info(
+            "Étape suivante : connecter un moteur vidéo IA "
+            "pour générer réellement la vidéo."
+        )
+
     else:
         st.warning("Décris d'abord ton histoire !")
+
 st.divider()
 st.caption("Fruzen IA — Notre projet, notre ambition 🚀")
