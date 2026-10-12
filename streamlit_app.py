@@ -40,6 +40,7 @@ if image is not None:
         use_container_width=True
     )
 
+
 if st.button("✨ Préparer mon idée"):
     if idee.strip():
         st.success("Ton scénario est prêt !")
@@ -47,8 +48,6 @@ if st.button("✨ Préparer mon idée"):
         st.subheader("🎬 Ton projet vidéo")
         st.write("**Personnage :**", fruit)
         st.write("**Durée souhaitée :**", duree)
-
-        st.subheader("📝 Scénario préparé")
 
         prompt = f"""
 Crée une vidéo verticale de type TikTok.
@@ -74,9 +73,26 @@ Instructions :
             height=300
         )
 
+        st.download_button(
+            label="📥 Télécharger mon prompt",
+            data=prompt,
+            file_name="prompt_fruzen.txt",
+            mime="text/plain"
+        )
+
+        st.subheader("🧪 Mode test gratuit")
         st.info(
-            "Étape suivante : connecter un moteur vidéo IA "
-            "pour générer réellement la vidéo."
+            "Le scénario est préparé ! "
+            "La génération vidéo réelle sera disponible "
+            "lorsque le moteur IA sera connecté."
+        )
+
+        st.write("**Statut :** Scénario prêt, vidéo non générée.")
+        st.progress(100)
+
+        st.success(
+            "✅ Test réussi : Fruzen a préparé ton projet sans "
+            "consommer de crédits vidéo."
         )
 
     else:
